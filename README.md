@@ -2,7 +2,7 @@
 This program provides you with the real-time price of cryptocurrencies and is a simple exchange that allows prices to be converted into each other.
 
 # Technologies
-For this project we've been use following technologies:
+For this project we have used following technologies:
 - Django[4.x] : The Web framework. [see here](https://www.djangoproject.com/)
 - Python[3.9.x] : [see here](https://www.python.org/)
 - Celery : for controling background tasks. [see here](https://docs.celeryq.dev/en/stable/)
