@@ -105,3 +105,13 @@ class CoinMarketCap:
             headers=headers
         )
         return data
+    
+    @staticmethod
+    def is_updated_coin(coin: Dict, cached_coin: Dict) -> bool:
+        """Check the coin is updated or not"""
+        if not cached_coin:
+            return True
+        if coin['quote']['USD']['price'] != cached_coin['quote']['USD']['price']:
+            logger.info(f'Coin {coin["symbol"]} has been updated.')
+            return True
+        return False
