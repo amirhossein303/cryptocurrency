@@ -1,47 +1,58 @@
-{% load static humanize %}
+{% load static humanize coins %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Amirhossein zibaei">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coins List</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      
 </head>
-<body class="darken-1">
+<body>
     <main>
         <section id="crypto-section" class="container center-align">
             <header>
                 <h2>Coins List</h2>
             </header>
-            <table id="crypto-table" class="highlight centered">
+            <table id="crypto-table" class="highlight">
                 <thead>
+                    <th>#</th>
                     <th>Name</th>
-                    <th>Symbol</th>
-                    <th>Rank</th>
                     <th>Price</th>
-                    <th>24 Hour Change</th>
+                    <th>Market cap</th>
+                    <th>Daily</th>
+                    <th>Weekly</th>
                 </thead>
                 <tbody id="crypto-table-body">
                     {% for coin in coins_list.data %}
                     <tr id="{{ coin.symbol }}">
-                        <td name="name" >{{ coin.name }}</td>
-                        <td name="symbol" >{{ coin.symbol }}</td>
                         <td name="cmc_rank" >{{ coin.cmc_rank }}</td>
-                        <td name="price" >${{ coin.quote.USD.price|floatformat|intcomma }}</td>
+                        <td>
+                            <img src="{% load_icon_coin coin.symbol %}" width="25px" alt="{{ coin.symbol }}">
+                            {{ coin.name }}
+                        </td>
+                    
+                        <td class="text-primary" >${{ coin.quote.USD.price|floatformat|intcomma }}</td>
+                        <td name="market_cap" >{{ coin.quote.USD.market_cap|floatformat|intcomma }}</td>
                         <td name="percent_change_24h" >
                             {% if coin.quote.USD.percent_change_24h >= 0 %}
-                            <span class="badge badge-pill badge-success">
+                            <div class="badge badge-pill badge-success w-75">
                             {% else %}
-                            <span class="badge badge-pill badge-danger">
+                            <div class="badge badge-pill badge-danger w-75">
                             {% endif %}
-                                <span style="color: white;">{{ coin.quote.USD.percent_change_24h|floatformat:2 }} %</span>
-                            </span>
+                                <div class="text-white p-1">
+                                    {{ coin.quote.USD.percent_change_24h|floatformat:2 }} %
+                                </div>
+                            </div>
+                        </td>
+                        <td name="percent_change_7d" >
+                            {{ coin.quote.USD.percent_change_7d|floatformat:2 }}%
                         </td>
                     </tr>
                     {% endfor %}
@@ -52,6 +63,6 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- <script src="{% static 'scripts/coins/index.js' %}"></script> -->
+    <script src="{% static 'scripts/coins/index.js' %}"></script>
 </body>
 </html>
