@@ -111,7 +111,7 @@ class CoinMarketCap:
         """Check the coin is updated or not"""
         if not cached_coin:
             return True
-        if coin['quote']['USD']['price'] != cached_coin['quote']['USD']['price']:
+        if coin['last_updated'] != cached_coin['last_updated']:
             logger.info(f'Coin {coin["symbol"]} has been updated.')
             return True
         return False
