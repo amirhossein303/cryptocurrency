@@ -3,7 +3,7 @@ CELERY_IMPORTS = 'config.tasks'
 CELERYBEAT_SCHEDULE = {
     'update-cryptocurrencies-data':{
         'task': 'update-cryptocurrencies-data',
-        'schedule': 60, # each 1 minute
+        'schedule': 10, # each 10 seconds
     }
 }
 

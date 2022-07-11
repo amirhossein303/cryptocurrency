@@ -4,7 +4,7 @@ from django.core.cache import cache
 from decouple import config 
 
 from apps.coinmarketcap.api import CoinMarketCap
-from apps.core.helpers import update_coin_data
+from apps.coins.helpers import update_coin_data, send_data_to_websocket_coins_list_view
 from .celery import app
 
 
@@ -32,4 +32,5 @@ def update_cryptocurrencies_data() -> None:
     ]
 
     # 3. send result to websocket channel
+    send_data_to_websocket_coins_list_view(updated_coins)
     return None

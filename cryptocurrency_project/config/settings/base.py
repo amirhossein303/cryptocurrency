@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'apps.coinmarketcap',
     'apps.core',
     'apps.coins',
+
+    # 3rd Parties
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -71,12 +74,15 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'builtins': [
+                'apps.coins.templatetags.coins'
+            ]
         },
     },
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
+ASGI_APPLICATION = "config.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -133,3 +139,15 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ICONS_COINS_PATH = '/images/icons/color/{coin_name}.svg'
+
+# Channels
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
