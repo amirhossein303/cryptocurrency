@@ -13,4 +13,4 @@ For this project we have used following technologies:
 - Bootstrap4 : for the front-end part. [Documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 
 ## Sample overview of project
-![](https://github.com/amirhosseinzibaei/cryptocurrency/blob/main/project_overview.gif)
+![](https://github.com/amirhosseinzibaei/cryptocurrency/blob/main/docs/project_overview.gif)
