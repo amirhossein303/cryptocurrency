@@ -1,6 +1,10 @@
 # Cryptocurrency
 This program provides you with the real-time price of cryptocurrencies.
 
+# Versions
+- Version [v0.0.1](https://github.com/amirhosseinzibaei/cryptocurrency/tree/v0.0.1) is the first version that is not using the docker and some new feature. 
+- Version [v0.1.0](https://github.com/amirhosseinzibaei/cryptocurrency/tree/v0.1.0) is the dockerized version. 
+
 # Technologies
 For this project we have used following technologies:
 - **Python**[3.9.x] : [see here](https://www.python.org/)
