@@ -26,51 +26,7 @@ For this project we have used following technologies:
 
 
 # Instalation
-## Clone the sourse
-At the first you have to clone the project.
-```
-$ git clone https://github.com/amirhosseinzibaei/cryptocurrency.git
-```
-
-## Making environment variable
-Create **.env** file in the root directory and copy the following content
-```
-# Coin market cap configs
-API_KEY_COIN_MARKET_CAP = '<your-api-key>'
-
-## Endpoints
-URL_ACTIVE_COINS = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
-URL_KEY_INFO = 'https://pro-api.coinmarketcap.com/v1/key/info'
-
-# Celery confs
-CELERY_MAIN_NAME = 'cryptocurrency'
-
-# Django
-SECRET_KEY = '<your-secret-key>'
-DEBUG = 1
-ALLOWED_HOSTS = '*'
-```
-- `API_KEY_COIN_MARKET_CAP` is your api_key of coinmarketcap api.
-for getting your first api_key go to [this](https://pro.coinmarketcap.com/signup/) page
-- `SECRET_KEY` is the *django secret key*. you can also generate it from https://djecrety.ir/
-- The `Endpoints` configs should not be change.
-- `DEBUG` and `ALLOWED_HOSTS` is the configuration of your django project
-
-
-## Running the app
-Now just by run the containers in a network `docker-compose` you can run the project.
-```
-$ docker-compose up --build -d
-```
-This will run in the background with the `-d` flag<br>
-you can also remove the `-d` flag to run in the foreground to see what happening.
-
-OR
-
-```
-$ docker-compose logs -f
-```
-Ok it's time to open your browser and go to this url: http://0.0.0.0:8080/
+For instalation follow one the above version instructions.
 
 # Thanks
 It's my pleasure to know your opinion about this simple project
