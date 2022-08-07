@@ -25,8 +25,8 @@ For this project we have used following technologies:
 ![](https://github.com/amirhosseinzibaei/cryptocurrency/blob/main/docs/project_overview.gif)
 
 
-# Instalation
-For instalation follow one the above version instructions.
+# Installation
+For Installation follow one the above version instructions.
 
 # Thanks
 It's my pleasure to know your opinion about this simple project
